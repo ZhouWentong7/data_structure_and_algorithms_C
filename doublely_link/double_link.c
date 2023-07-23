@@ -38,4 +38,7 @@ bool search(int v, NODE* h)
     return false;
 }
 
+bool isEmpty(NODE * h){
+    return false;
+}
 

@@ -74,7 +74,40 @@ void bubble_sort_optimized(int nums[])
 
 }
 
+/*
+ The array will be divided into two parts: ordered part and unsorted part.
+ The smallest element of the unsorted part is selected and inserted into the ordered part at a time.
+*/
+void select_sort(int nums[])
+{
+    printf("-------- Select_Sort_Optimized ----------\n");
+    int pos =  0,tail = 0;
+    int unsorted_head = 0;
+    int tmp ;
 
+    while(tail< SIZE)
+    {
+        for(int i = tail;i<SIZE;i++)
+        {
+            if(nums[i] < nums[pos])
+            {
+                pos = i;
+            }
+        }
+
+        tmp = nums[tail];
+        nums[tail] = nums[pos];
+        nums[pos] = tmp;
+        tail++;
+        pos = tail;
+
+        printf("\nloop %d: ",tail);
+        print_array(nums);
+    }
+    printf("END:");
+    print_array(nums);
+    printf("==================================\n");
+}
 int main()
 {
     int a[SIZE] = {3,6,2,7,9,8,0,1,5,4};
@@ -85,6 +118,8 @@ int main()
     int b[SIZE] = {3,6,2,7,9,8,0,1,5,4};
     bubble_sort_optimized(b);
 
+    int c[SIZE] = {3,6,2,7,9,8,0,1,5,4};
+    select_sort(c);
     return 0;
 
 }
